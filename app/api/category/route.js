@@ -1,6 +1,8 @@
 import Category from "@/models/Category";
+import dbConnect from "@/lib/db";
 
 export async function GET(request) {
+  await dbConnect();
   // console.log('GET /api/category',request.nextUrl.searchParams.get("pno"))
   const pno = request.nextUrl.searchParams.get("pno")
   if (pno) {
@@ -28,6 +30,7 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
+  await dbConnect();
   const body = await request.json()
   const category = new Category(body)
   await category.save()
@@ -38,6 +41,7 @@ export async function POST(request) {
 
 // for V2
 export async function PUT(request) {
+  await dbConnect();
   const body = await request.json()
   const category = await Category.findByIdAndUpdate(body._id, body)
   return Response.json(category)

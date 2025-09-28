@@ -2,8 +2,8 @@
 const nextConfig = {
   experimental: {
     instrumentationHook: true,
-    basePath: '/stock',
   },
+  basePath: '/stock',
 };
 
 export default nextConfig;
