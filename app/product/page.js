@@ -31,7 +31,7 @@ export default function Home() {
     },
   ]
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL;
+  const API_BASE = '/stock/api';
   console.debug("API_BASE", API_BASE);
   const [editMode, setEditMode] = useState(false);
   const { register, handleSubmit, reset } = useForm();
